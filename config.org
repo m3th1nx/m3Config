@@ -1,5 +1,5 @@
 #+TITLE: Emacs Configuration
-#+AUTHOR: Your Name Here
+#+AUTHOR: Clint Lee
 
 Boilerplate for a ~/.emacs.d/config.org emacs configuration using
 "Sane Defaults".
@@ -25,8 +25,8 @@ Steps to making this file yours:
 * Personal Information
 
 #+begin_src emacs-lisp
-(setq user-full-name "Your Name Here"
-      user-mail-address "your@email.here")
+(setq user-full-name "Clint Lee"
+      user-mail-address "methinx@gmail.com")
 #+end_src
 
 * Customize settings
@@ -46,6 +46,12 @@ Let's start with some sane defaults, shall we?
 Sources for this section include [[https://github.com/magnars/.emacs.d/blob/master/settings/sane-defaults.el][Magnars Sveen]] and [[http://pages.sachachua.com/.emacs.d/Sacha.html][Sacha Chua]].
 
 #+begin_src emacs-lisp
+;; This is for key bindings to invoke agenda mode (see line-2)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+
 ;; These functions are useful. Activate them.
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
