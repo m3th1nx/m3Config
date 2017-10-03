@@ -98,10 +98,12 @@ at point as the default value for occur.
 
 * Key bindings
 #+BEGIN_SRC emacs-lisp
-;; This is for key bindings to invoke agenda mode (see line-2)
 (global-set-key "\C-cl" 'org-store-link)
+;; run agenda mode 
 (global-set-key "\C-ca" 'org-agenda)
+;; create capture templates
 (global-set-key "\C-cc" 'org-capture)
+;; switching org buffer
 (global-set-key "\C-cb" 'org-iswitchb)
 ;; magit-status
 (global-set-key "\C-cm" 'magit-status)
