@@ -98,6 +98,7 @@ at point as the default value for occur.
 
 * Key bindings
 #+BEGIN_SRC emacs-lisp
+;; stores local Links to be pasted with C-c C-l
 (global-set-key "\C-cl" 'org-store-link)
 ;; run agenda mode 
 (global-set-key "\C-ca" 'org-agenda)
