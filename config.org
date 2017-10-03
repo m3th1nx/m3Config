@@ -103,6 +103,8 @@ at point as the default value for occur.
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+;; magit-status
+(global-set-key "\C-cm" 'magit-status)
 #+END_SRC
 * Installed Packages
 ** magit
