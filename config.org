@@ -1,27 +1,10 @@
 #+TITLE: Emacs Configuration
 #+AUTHOR: Clint Lee
 
-Boilerplate for a ~/.emacs.d/config.org emacs configuration using
-"Sane Defaults".
-
-Steps to making this file yours:
-
-1) Change all instances of "Your Name Here" to your name.
-2) Change all instances of "your@email.here" to your email address.
-3) Create ~/.emacs.d/custom.el even if it's empty.
-   Emacs will now write your (interactive) customizations to that
-   file. 
-4) Change the Sane Defaults if you need to. 
-   For example if you read and write Chinese and so prefer to default
-   to utf-16.
-5) Teach yourself what goes into your backup directories
-   ~/.emacs.d/backups
-   ~/.emacs.d/auto-save-list
-   So you'll know where to look for older versions of files that
-   you've edited. 
-6) Delete these instructions and replace them with a personalized
-   introduction. 
-
+* Links
+** Local
+[[file:init.el::(org-babel-load-file%20(concat%20user-emacs-directory%20"config.org"))][C-x C-e at end of code for HOT save.]]
+** Not Local
 * Personal Information
 
 #+begin_src emacs-lisp
@@ -46,12 +29,6 @@ Let's start with some sane defaults, shall we?
 Sources for this section include [[https://github.com/magnars/.emacs.d/blob/master/settings/sane-defaults.el][Magnars Sveen]] and [[http://pages.sachachua.com/.emacs.d/Sacha.html][Sacha Chua]].
 
 #+begin_src emacs-lisp
-;; This is for key bindings to invoke agenda mode (see line-2)
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-iswitchb)
-
 ;; These functions are useful. Activate them.
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
@@ -88,8 +65,6 @@ Sources for this section include [[https://github.com/magnars/.emacs.d/blob/mast
 
 (show-paren-mode t)
 
-(column-number-mode t)
-
 (global-visual-line-mode)
 (diminish 'visual-line-mode)
 
@@ -120,3 +95,12 @@ at point as the default value for occur.
 
 (bind-key "M-s o" 'occur-dwim)
 #+end_src
+
+* Key bindings
+#+BEGIN_SRC emacs-lisp
+;; This is for key bindings to invoke agenda mode (see line-2)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+#+END_SRC

@@ -7,7 +7,7 @@
   (tooltip-mode -1))
 
 (setq inhibit-startup-message t)
-(setq initial-scratch-message "")
+(setq initial-scratch-message "Authorized Personnel Only")
 
 ;;; Set up package
 (require 'package)
