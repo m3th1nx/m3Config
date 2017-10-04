@@ -102,7 +102,12 @@ at point as the default value for occur.
   (use-package dictionary
     :ensure t)
 #+END_SRC
-
+** thesaurus
+#+BEGIN_SRC emacs-lisp
+  (use-package thesaurus
+    :ensure t)
+  (setq thesaurus-bhl-api-key "2b5944530d9012cdcf194cb721064377")
+#+END_SRC
 
 * Key bindings
 #+BEGIN_SRC emacs-lisp
@@ -120,5 +125,7 @@ at point as the default value for occur.
 (global-set-key (kbd "<f1>") 'shell) 
 ;; Search @coursor or type word
 (global-set-key (kbd "<f2>") 'dictionary-search) 
-
+;;Replace word with synonym
+(global-set-key "\C-ct" 'thesaurus-choose-synonym-and-replace)
 #+END_SRC
+* Testing 
