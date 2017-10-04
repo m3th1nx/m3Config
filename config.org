@@ -97,6 +97,12 @@ at point as the default value for occur.
   (use-package magit
     :ensure t)
 #+END_SRC
+** dictionary
+#+BEGIN_SRC emacs-lisp
+  (use-package dictionary
+    :ensure t)
+#+END_SRC
+
 
 * Key bindings
 #+BEGIN_SRC emacs-lisp
@@ -110,5 +116,9 @@ at point as the default value for occur.
 (global-set-key "\C-cb" 'org-iswitchb)
 ;; magit-status
 (global-set-key "\C-cm" 'magit-status)
+;; open a shell
+(global-set-key (kbd "<f1>") 'shell) 
+;; Search @coursor or type word
+(global-set-key (kbd "<f2>") 'dictionary-search) 
 #+END_SRC
 * Unsorted Customization
