@@ -120,5 +120,5 @@ at point as the default value for occur.
 (global-set-key (kbd "<f1>") 'shell) 
 ;; Search @coursor or type word
 (global-set-key (kbd "<f2>") 'dictionary-search) 
+
 #+END_SRC
-* Unsorted Customization

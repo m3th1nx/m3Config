@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(global-hl-line-mode t)
+ '(ispell-highlight-p t)
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25))
