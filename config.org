@@ -116,7 +116,7 @@ at point as the default value for occur.
 (global-set-key "\C-cb" 'org-iswitchb)
 ;; magit-status
 (global-set-key "\C-cm" 'magit-status)
-;; open a shell
+;; open a Shell
 (global-set-key (kbd "<f1>") 'shell) 
 ;; Search @coursor or type word
 (global-set-key (kbd "<f2>") 'dictionary-search) 

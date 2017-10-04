@@ -6,6 +6,7 @@
  '(column-number-mode t)
  '(global-hl-line-mode t)
  '(ispell-highlight-p t)
+ '(magit-repository-directories (quote ("~/.emacs.d/")))
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25))
