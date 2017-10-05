@@ -11,8 +11,13 @@
 
 ;;; Set up package
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+(setq package-enable-at-startup nil)
+(setq package-archives (append package-archives
+			 '(("melpa" . "http://melpa.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ;; ("org" . "http://orgmode.org/elpa/")
+			 ("elpy" . "http://jorgenschaefer.github.io/packages/"))))
 (package-initialize)
 
 ;;; Bootstrap use-package
@@ -24,8 +29,8 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)                ;; if you use :diminish
-(require 'bind-key)
+(require 'diminish)                
+(require 'bind-key)                
 ;(setq use-package-verbose t)
 
 ;;; Load the config

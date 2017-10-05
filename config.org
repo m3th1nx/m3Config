@@ -2,114 +2,35 @@
 #+AUTHOR: Clint Lee
 
 * Personal Information
-
 #+begin_src emacs-lisp
 (setq user-full-name "Clint Lee"
       user-mail-address "methinx@gmail.com")
 #+end_src
-
-* Customize settings
-
-Set up the customize file to its own separate file, instead of saving
-customize settings in [[file:init.el][init.el]]. 
-
+* M-x customize-group, autosaved to  [[file:config.el][config.el]]
 #+begin_src emacs-lisp
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 #+end_src
-
-* Sane defaults
-
-Let's start with some sane defaults, shall we?
-
-Sources for this section include [[https://github.com/magnars/.emacs.d/blob/master/settings/sane-defaults.el][Magnars Sveen]] and [[http://pages.sachachua.com/.emacs.d/Sacha.html][Sacha Chua]].
-
-#+begin_src emacs-lisp
-;; These functions are useful. Activate them.
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'dired-find-alternate-file 'disabled nil)
-
-;; Answering just 'y' or 'n' will do
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Keep all backup and auto-save files in one directory
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
-
-;; UTF-8 please
-(setq locale-coding-system 'utf-8) ; pretty
-(set-terminal-coding-system 'utf-8) ; pretty
-(set-keyboard-coding-system 'utf-8) ; pretty
-(set-selection-coding-system 'utf-8) ; please
-(prefer-coding-system 'utf-8) ; with sugar on top
-(setq-default indent-tabs-mode nil)
-
-;; Turn off the blinking cursor
-(blink-cursor-mode -1)
-
-(setq-default indent-tabs-mode nil)
-(setq-default indicate-empty-lines t)
-
-;; Don't count two spaces after a period as the end of a sentence.
-;; Just one space is needed.
-(setq sentence-end-double-space nil)
-
-;; delete the region when typing, just like as we expect nowadays.
-(delete-selection-mode t)
-
-(show-paren-mode t)
-
-(global-visual-line-mode)
-(diminish 'visual-line-mode)
-
-(setq uniquify-buffer-name-style 'forward)
-
-;; -i gets alias definitions from .bash_profile
-(setq shell-command-switch "-ic")
-
-;; Don't beep at me
-(setq visible-bell t)
-#+end_src
-
-The following function for ~occur-dwim~ is taken from [[https://github.com/abo-abo][Oleh Krehel]] from
-[[http://oremacs.com/2015/01/26/occur-dwim/][his blog post at (or emacs]]. It takes the current region or the symbol
-at point as the default value for occur.
-
-#+begin_src emacs-lisp
-(defun occur-dwim ()
-  "Call `occur' with a sane default."
-  (interactive)
-  (push (if (region-active-p)
-            (buffer-substring-no-properties
-             (region-beginning)
-             (region-end))
-          (thing-at-point 'symbol))
-        regexp-history)
-  (call-interactively 'occur))
-
-(bind-key "M-s o" 'occur-dwim)
-#+end_src
-* Install Packages
-** magit
+* Lame defaults
+* Installed Packages
+** magit-status C-c m
 #+BEGIN_SRC emacs-lisp
   (use-package magit
-    :ensure t)
+    :ensure t
+    :defer t
+    :bind ("C-c m" . magit-status)
+    :init
+    (setq magit-diff-options (quote ("--word-diff")))
+    (setq magit-diff-refine-hunk 'all)
+    )
 #+END_SRC
 ** dictionary
 #+BEGIN_SRC emacs-lisp
   (use-package dictionary
     :ensure t)
 #+END_SRC
-** thesaurus
-#+BEGIN_SRC emacs-lisp
-  (use-package thesaurus
-    :ensure t)
-  (setq thesaurus-bhl-api-key "2b5944530d9012cdcf194cb721064377")
-#+END_SRC
 
-* Key bindings
+* misc Key bindings
 #+BEGIN_SRC emacs-lisp
 ;; stores local Links to be pasted with C-c C-l
 (global-set-key "\C-cl" 'org-store-link)
@@ -119,13 +40,10 @@ at point as the default value for occur.
 (global-set-key "\C-cc" 'org-capture)
 ;; switching org buffer
 (global-set-key "\C-cb" 'org-iswitchb)
-;; magit-status
-(global-set-key "\C-cm" 'magit-status)
 ;; open a Shell
 (global-set-key (kbd "<f1>") 'shell) 
 ;; Search @coursor or type word
-(global-set-key (kbd "<f2>") 'dictionary-search) 
-;;Replace word with synonym
-(global-set-key "\C-ct" 'thesaurus-choose-synonym-and-replace)
+(global-set-key (kbd "<f2>") 'dictionary-search)
+
 #+END_SRC
 * Testing 

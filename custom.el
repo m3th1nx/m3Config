@@ -8,6 +8,7 @@
  '(ispell-highlight-p t)
  '(magit-repository-directories (quote ("~/.emacs.d/")))
  '(send-mail-function (quote smtpmail-send-it))
+ '(show-paren-mode t)
  '(smtpmail-smtp-server "smtp.gmail.com")
  '(smtpmail-smtp-service 25))
 (custom-set-faces
